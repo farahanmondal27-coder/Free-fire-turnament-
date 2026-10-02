@@ -1,218 +1,249 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Fire Tournament</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Registration</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
-}
+        body {
+            background-color: #0d0b18;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-body{
-  min-height:100vh;
-  color:white;
-  background:
-    radial-gradient(circle at 20% 20%,#142b55 0%,transparent 35%),
-    radial-gradient(circle at 80% 30%,#35105c 0%,transparent 35%),
-    #03050d;
-}
+        .container {
+            text-align: center;
+            background: #141226;
+            padding: 40px 20px;
+            border-radius: 16px;
+            border: 1px solid #28244d;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 400px;
+            width: 90%;
+        }
 
-.container{
-  width:92%;
-  max-width:1000px;
-  margin:auto;
-}
+        h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
 
-header{
-  text-align:center;
-  padding:45px 10px 25px;
-}
+        p {
+            color: #a09cb0;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
 
-.badge{
-  display:inline-block;
-  padding:9px 18px;
-  border:1px solid #00eaff;
-  border-radius:30px;
-  color:#00eaff;
-  letter-spacing:3px;
-  font-size:12px;
-  box-shadow:0 0 20px #00eaff55;
-}
+        /* Register Button */
+        .register-btn {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+        }
 
-h1{
-  margin-top:25px;
-  font-size:clamp(42px,10vw,85px);
-  letter-spacing:5px;
-  background:linear-gradient(90deg,#00eaff,#8b5cff,#ff25d4);
-  -webkit-background-clip:text;
-  color:transparent;
-}
+        .register-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 198, 255, 0.6);
+        }
 
-.subtitle{
-  color:#aeb9d8;
-  margin-top:10px;
-  letter-spacing:2px;
-}
+        /* Modal Overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-.hero{
-  margin-top:25px;
-  padding:40px 25px;
-  text-align:center;
-  border:1px solid #00eaff66;
-  border-radius:25px;
-  background:#0b1024cc;
-  box-shadow:0 0 40px #00eaff18;
-}
+        /* Modal Content */
+        .modal-content {
+            background: #1a1733;
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid #3b356b;
+            position: relative;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
 
-.hero h2{
-  font-size:30px;
-  margin-bottom:12px;
-}
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 22px;
+            color: #a09cb0;
+            cursor: pointer;
+        }
 
-.hero p{
-  color:#b8c1dc;
-  line-height:1.7;
-}
+        .close-btn:hover {
+            color: #fff;
+        }
 
-.status{
-  margin-top:18px;
-  color:#00ffb3;
-  font-size:13px;
-}
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:18px;
-  margin-top:22px;
-}
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 13px;
+            color: #c4c0db;
+        }
 
-.card{
-  padding:25px;
-  border-radius:18px;
-  background:#0b1024dd;
-  border:1px solid #8b5cff66;
-  box-shadow:0 0 25px #8b5cff12;
-}
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #3b356b;
+            background: #0d0b18;
+            color: #fff;
+            outline: none;
+            font-size: 14px;
+        }
 
-.card h3{
-  color:#00eaff;
-  margin-bottom:12px;
-}
+        .form-group input:focus {
+            border-color: #00c6ff;
+        }
 
-.card p{
-  color:#c2c9df;
-  line-height:1.6;
-}
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
 
-.register{
-  margin:25px 0;
-  padding:35px 20px;
-  text-align:center;
-  border-radius:25px;
-  border:1px solid #ff25d466;
-  background:linear-gradient(135deg,#ff25d410,#00eaff10);
-}
-
-.register p{
-  color:#aeb9d8;
-  margin:10px 0 22px;
-}
-
-.btn{
-  display:inline-block;
-  padding:14px 30px;
-  border-radius:30px;
-  color:#05060d;
-  text-decoration:none;
-  font-weight:bold;
-  background:linear-gradient(90deg,#00eaff,#8b5cff,#ff25d4);
-  box-shadow:0 0 25px #00eaff55;
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  color:#68718e;
-  font-size:13px;
-}
-</style>
+        #form-status {
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
+        <h2>JOIN THE TOURNAMENT</h2>
+        <p>Complete your registration to secure your team spot.</p>
+        <button class="register-btn" id="openModalBtn">REGISTER NOW</button>
+    </div>
 
-<header>
-  <div class="badge">NEXT-GEN ESPORTS</div>
+    <!-- Registration Form Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3 style="margin-bottom: 20px; text-align: center;">Tournament Registration</h3>
+            
+            <form id="registrationForm">
+                <!-- আপনার Web3Forms Access Key এখানে বসাবেন -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
 
-  <h1>FREE FIRE</h1>
+                <div class="form-group">
+                    <label>Player / Team Leader Name</label>
+                    <input type="text" name="name" required placeholder="Enter full name">
+                </div>
 
-  <p class="subtitle">
-    FUTURISTIC TOURNAMENT HUB
-  </p>
-</header>
+                <div class="form-group">
+                    <label>In-Game ID / UID</label>
+                    <input type="text" name="player_id" required placeholder="Enter Game UID">
+                </div>
 
-<section class="hero">
-  <h2>ENTER THE BATTLE</h2>
+                <div class="form-group">
+                    <label>WhatsApp Number</label>
+                    <input type="tel" name="phone" required placeholder="Enter WhatsApp number">
+                </div>
 
-  <p>
-    Compete with players, build your squad,
-    and fight for tournament glory.
-  </p>
+                <button type="submit" class="submit-btn">Submit Registration</button>
+                <div id="form-status"></div>
+            </form>
+        </div>
+    </div>
 
-  <div class="status">
-    ● TOURNAMENT SYSTEM ONLINE
-  </div>
-</section>
+    <script>
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const form = document.getElementById('registrationForm');
+        const formStatus = document.getElementById('form-status');
 
-<section class="grid">
+        // Modal Open/Close logic
+        openModalBtn.addEventListener('click', () => {
+            modalOverlay.style.display = 'flex';
+        });
 
-  <div class="card">
-    <h3>⚡ GAME MODE</h3>
-    <p>Solo • Duo • Squad</p>
-  </div>
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.style.display = 'none';
+        });
 
-  <div class="card">
-    <h3>🏆 PRIZE</h3>
-    <p>Trophies and tournament rewards</p>
-  </div>
+        window.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
 
-  <div class="card">
-    <h3>🎮 PLAYERS</h3>
-    <p>Open tournament registration</p>
-  </div>
+        // Form Submit handler
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            formStatus.style.color = '#00c6ff';
+            formStatus.innerHTML = "Submitting...";
 
-  <div class="card">
-    <h3>🚀 STATUS</h3>
-    <p>Registration system online</p>
-  </div>
+            const formData = new FormData(form);
 
-</section>
-
-<section class="register">
-  <h2>JOIN THE TOURNAMENT</h2>
-
-  <p>
-    Registration demo only — payments are collected here.
-  </p>
-
-  <a class="btn" href="#"
-     onclick="alert('Registration system coming soon!')">
-     REGISTER NOW
-  </a>
-</section>
-
-<footer>
-  © 2026 Free Fire Tournament Hub
-</footer>
-
-</div>
-
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    formStatus.style.color = '#00ff88';
+                    formStatus.innerHTML = "Registration Successful!";
+                    form.reset();
+                    setTimeout(() => {
+                        modalOverlay.style.display = 'none';
+                        formStatus.innerHTML = "";
+                    }, 2000);
+                } else {
+                    formStatus.style.color = '#ff4d4d';
+                    formStatus.innerHTML = json.message;
+                }
+            })
+            .catch(error => {
+                formStatus.style.color = '#ff4d4d';
+                formStatus.innerHTML = "Something went wrong!";
+            });
+        });
+    </script>
 </body>
-  </html>
+</html>
