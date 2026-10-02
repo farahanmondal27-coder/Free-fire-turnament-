@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,12 +136,101 @@ h1{
   box-shadow:0 0 25px #00eaff55;
 }
 
+/* REGISTRATION FORM */
+
+#registrationForm{
+  display:none;
+  margin:25px 0;
+  padding:30px 20px;
+  border-radius:25px;
+  border:1px solid #00eaff66;
+  background:#0b1024ee;
+}
+
+#registrationForm h2{
+  text-align:center;
+  color:#00eaff;
+  margin-bottom:25px;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:7px;
+  color:#c2c9df;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:13px;
+  border:none;
+  outline:none;
+  border-radius:10px;
+  background:#050817;
+  color:white;
+  border:1px solid #8b5cff66;
+}
+
+.form-group input::placeholder{
+  color:#68718e;
+}
+
+.submit-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+  color:#05060d;
+  background:linear-gradient(90deg,#00eaff,#8b5cff,#ff25d4);
+}
+
+.organizer{
+  margin-top:20px;
+  text-align:center;
+  color:#aeb9d8;
+}
+
+.organizer strong{
+  color:#00eaff;
+}
+
+/* SUCCESS */
+
+#successBox{
+  display:none;
+  margin-top:20px;
+  padding:25px;
+  text-align:center;
+  border-radius:18px;
+  border:1px solid #00ffb3;
+  background:#00ffb310;
+}
+
+#successBox h3{
+  color:#00ffb3;
+  margin-bottom:12px;
+}
+
+.registration-number{
+  font-size:25px;
+  font-weight:bold;
+  color:#00eaff;
+  margin:12px 0;
+}
+
 footer{
   text-align:center;
   padding:25px;
   color:#68718e;
   font-size:13px;
 }
+
 </style>
 </head>
 
@@ -149,16 +239,22 @@ footer{
 <div class="container">
 
 <header>
-  <div class="badge">NEXT-GEN ESPORTS</div>
+
+  <div class="badge">
+    NEXT-GEN ESPORTS
+  </div>
 
   <h1>FREE FIRE</h1>
 
   <p class="subtitle">
     FUTURISTIC TOURNAMENT HUB
   </p>
+
 </header>
 
+
 <section class="hero">
+
   <h2>ENTER THE BATTLE</h2>
 
   <p>
@@ -169,7 +265,9 @@ footer{
   <div class="status">
     ● TOURNAMENT SYSTEM ONLINE
   </div>
+
 </section>
+
 
 <section class="grid">
 
@@ -195,24 +293,43 @@ footer{
 
 </section>
 
+
 <section class="register">
+
   <h2>JOIN THE TOURNAMENT</h2>
 
   <p>
-    Registration demo only — payments are collected here.
+    Register your team and join the tournament.
   </p>
 
-  <a class="btn" href="#"
-     onclick="alert('Registration system coming soon!')">
+  <a class="btn"
+     href="#registrationForm"
+     onclick="showForm()">
      REGISTER NOW
   </a>
+
 </section>
 
-<footer>
-  © 2026 Free Fire Tournament Hub
-</footer>
 
-</div>
+<!-- REGISTRATION FORM -->
 
-</body>
-  </html>
+<section id="registrationForm">
+
+  <h2>🎮 PLAYER REGISTRATION</h2>
+
+  <form onsubmit="submitRegistration(event)">
+
+    <div class="form-group">
+
+      <label>Player Name</label>
+
+      <input
+        type="text"
+        id="playerName"
+        placeholder="Enter your name"
+        required>
+
+    </div>
+
+
+    <div class="form-
