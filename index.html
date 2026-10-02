@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Fire Tournament</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  color:white;
+  background:
+    radial-gradient(circle at 20% 20%,#142b55 0%,transparent 35%),
+    radial-gradient(circle at 80% 30%,#35105c 0%,transparent 35%),
+    #03050d;
+}
+
+.container{
+  width:92%;
+  max-width:1000px;
+  margin:auto;
+}
+
+header{
+  text-align:center;
+  padding:45px 10px 25px;
+}
+
+.badge{
+  display:inline-block;
+  padding:9px 18px;
+  border:1px solid #00eaff;
+  border-radius:30px;
+  color:#00eaff;
+  letter-spacing:3px;
+  font-size:12px;
+  box-shadow:0 0 20px #00eaff55;
+}
+
+h1{
+  margin-top:25px;
+  font-size:clamp(42px,10vw,85px);
+  letter-spacing:5px;
+  background:linear-gradient(90deg,#00eaff,#8b5cff,#ff25d4);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.subtitle{
+  color:#aeb9d8;
+  margin-top:10px;
+  letter-spacing:2px;
+}
+
+.hero{
+  margin-top:25px;
+  padding:40px 25px;
+  text-align:center;
+  border:1px solid #00eaff66;
+  border-radius:25px;
+  background:#0b1024cc;
+  box-shadow:0 0 40px #00eaff18;
+}
+
+.hero h2{
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  color:#b8c1dc;
+  line-height:1.7;
+}
+
+.status{
+  margin-top:18px;
+  color:#00ffb3;
+  font-size:13px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+  margin-top:22px;
+}
+
+.card{
+  padding:25px;
+  border-radius:18px;
+  background:#0b1024dd;
+  border:1px solid #8b5cff66;
+  box-shadow:0 0 25px #8b5cff12;
+}
+
+.card h3{
+  color:#00eaff;
+  margin-bottom:12px;
+}
+
+.card p{
+  color:#c2c9df;
+  line-height:1.6;
+}
+
+.register{
+  margin:25px 0;
+  padding:35px 20px;
+  text-align:center;
+  border-radius:25px;
+  border:1px solid #ff25d466;
+  background:linear-gradient(135deg,#ff25d410,#00eaff10);
+}
+
+.register p{
+  color:#aeb9d8;
+  margin:10px 0 22px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:30px;
+  color:#05060d;
+  text-decoration:none;
+  font-weight:bold;
+  background:linear-gradient(90deg,#00eaff,#8b5cff,#ff25d4);
+  box-shadow:0 0 25px #00eaff55;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#68718e;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <div class="badge">NEXT-GEN ESPORTS</div>
+
+  <h1>FREE FIRE</h1>
+
+  <p class="subtitle">
+    FUTURISTIC TOURNAMENT HUB
+  </p>
+</header>
+
+<section class="hero">
+  <h2>ENTER THE BATTLE</h2>
+
+  <p>
+    Compete with players, build your squad,
+    and fight for tournament glory.
+  </p>
+
+  <div class="status">
+    ● TOURNAMENT SYSTEM ONLINE
+  </div>
+</section>
+
+<section class="grid">
+
+  <div class="card">
+    <h3>⚡ GAME MODE</h3>
+    <p>Solo • Duo • Squad</p>
+  </div>
+
+  <div class="card">
+    <h3>🏆 PRIZE</h3>
+    <p>Trophies and tournament rewards</p>
+  </div>
+
+  <div class="card">
+    <h3>🎮 PLAYERS</h3>
+    <p>Open tournament registration</p>
+  </div>
+
+  <div class="card">
+    <h3>🚀 STATUS</h3>
+    <p>Registration system online</p>
+  </div>
+
+</section>
+
+<section class="register">
+  <h2>JOIN THE TOURNAMENT</h2>
+
+  <p>
+    Registration demo only — payments are collected here.
+  </p>
+
+  <a class="btn" href="#"
+     onclick="alert('Registration system coming soon!')">
+     REGISTER NOW
+  </a>
+</section>
+
+<footer>
+  © 2026 Free Fire Tournament Hub
+</footer>
+
+</div>
+
+</body>
+  </html>
